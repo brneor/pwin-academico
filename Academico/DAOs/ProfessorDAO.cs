@@ -20,7 +20,7 @@ namespace Professor.DAOs
             "SELECT * FROM PROFESSOR WHERE id = " + id;
 
         protected override string GetSqlSelectNome(string nome) =>
-           "SELECT * FROM PROFESSOR WHERE nome LIKE " + nome + "%";
+           "SELECT * FROM PROFESSOR WHERE nome LIKE '" + nome + "%'";
 
         protected override string GetSqlUpdate() =>
             "UPDATE PROFESSOR SET nome=@NOME, matricula=@MATRICULA, email=@EMAIL WHERE id = @ID";

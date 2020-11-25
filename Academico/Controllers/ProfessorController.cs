@@ -28,12 +28,12 @@ namespace Professor.Controllers
             return new ObjectResult((new DAOprofessor()).SelectId(id));
         }
 
-        // GET api/<ProfessorController>/A
-        // [HttpGet("{nome}")]
-        // public IEnumerable<ProfessorClass> GetNome(string nome)
-        // {
-        //     return (new DAOprofessor()).SelectNome(nome);
-        // }
+        // GET api/<ProfessorController>/nome=A
+        [HttpGet("nome={nome}")]
+        public IEnumerable<ProfessorClass> GetNome(string nome)
+        {
+            return (new DAOprofessor()).SelectNome(nome);
+        }
 
         // POST api/<ProfessorController>
         [HttpPost]
