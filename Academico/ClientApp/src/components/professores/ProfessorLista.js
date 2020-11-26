@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import ProfessorCrud from "./ProfessorCrud";
+import Glyphicon from '@strongdm/glyphicon'
 
 class ProfessorLista extends React.Component {
     constructor(props) {
@@ -40,6 +40,9 @@ class ProfessorLista extends React.Component {
         return (
             <div>
                 <h1 id="tabelLabel" className="title" >Professores</h1>
+                <button className="btn btn-success add" onClick={this.props.incluir}>
+                    <Glyphicon glyph="plus"/>
+                </button>
                 <div className="search-container"><input className="form-control" type="text" placeholder="Busca..." onChange={this.updateList} /></div>
                 {this.renderLista()}
             </div>
@@ -47,7 +50,6 @@ class ProfessorLista extends React.Component {
     }
     
     updateList = (event) => {
-        console.log(event.target.value);
         this.props.buscar(event.target.value);
     }
 }

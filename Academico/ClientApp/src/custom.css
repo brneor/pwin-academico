@@ -22,3 +22,8 @@ code {
   display: block;
   float: left;
 }
+
+button.add {
+  margin: 8px;
+  border-radius: 20px;
+}

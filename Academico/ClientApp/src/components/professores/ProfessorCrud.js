@@ -104,8 +104,7 @@ class ProfessorCrud extends React.Component {
         else if (this.state.status === LISTANDO)
             return (
                 <div>
-                    <button className="btn btn-success mr-2" onClick={this.incluir}>Incluir</button>
-                    <ProfessorLista objetos={this.state.objetos} alterar={this.alterar} deletar={this.deletar} consultar={this.consultar} buscar={this.buscarNomeApi} />
+                    <ProfessorLista objetos={this.state.objetos} alterar={this.alterar} deletar={this.deletar} consultar={this.consultar} buscar={this.buscarNomeApi} incluir={this.incluir} />
                 </div>
             );
         else
