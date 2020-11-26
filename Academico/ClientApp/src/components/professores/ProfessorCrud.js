@@ -33,6 +33,15 @@ class ProfessorCrud extends React.Component {
         axios.get('http://localhost:5000/api/professor')
         .then(result => this.setState({ objetos: result.data, status: LISTANDO }));
     };
+    
+    buscarNomeApi = (nome) => {
+        if (nome !== "") {
+            axios.get('http://localhost:5000/api/professor/nome=' + nome)
+                .then(result => this.setState({objetos: result.data, status: LISTANDO}));
+        } else {
+            this.listarApi();
+        }
+    }
 
     excluirApi = (id) => {
         axios.delete(`http://localhost:5000/api/professor/${id}`)
@@ -69,6 +78,11 @@ class ProfessorCrud extends React.Component {
     consultar = (objeto) => {
         this.setState({ objeto, status: CONSULTANDO });
     }
+    
+    bucar = (nome) => {
+        if (nome === "") return;
+        console.log(nome);
+    }
 
     incluir = () => {
         this.setState({ objeto: {}, status: INCLUINDO });
@@ -91,7 +105,7 @@ class ProfessorCrud extends React.Component {
             return (
                 <div>
                     <button className="btn btn-success mr-2" onClick={this.incluir}>Incluir</button>
-                    <ProfessorLista objetos={this.state.objetos} alterar={this.alterar} deletar={this.deletar} consultar={this.consultar} />
+                    <ProfessorLista objetos={this.state.objetos} alterar={this.alterar} deletar={this.deletar} consultar={this.consultar} buscar={this.buscarNomeApi} />
                 </div>
             );
         else

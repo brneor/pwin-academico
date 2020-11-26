@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import ProfessorCrud from "./ProfessorCrud";
 
 class ProfessorLista extends React.Component {
     constructor(props) {
@@ -6,6 +7,7 @@ class ProfessorLista extends React.Component {
     }
 
     renderLista() {
+        console.log(this.props);
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
@@ -37,10 +39,16 @@ class ProfessorLista extends React.Component {
     render() {
         return (
             <div>
-                <h1 id="tabelLabel" >Professores</h1>
+                <h1 id="tabelLabel" className="title" >Professores</h1>
+                <div className="search-container"><input className="form-control" type="text" placeholder="Busca..." onChange={this.updateList} /></div>
                 {this.renderLista()}
             </div>
         );
+    }
+    
+    updateList = (event) => {
+        console.log(event.target.value);
+        this.props.buscar(event.target.value);
     }
 }
 
